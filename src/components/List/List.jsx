@@ -11,23 +11,13 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const List = () => {
+const List = ({ places }) => {
+	console.log('places props :>> ', places);
+
 	const classes = useStyles();
 
 	const [type, setType] = useState('restaurants');
 	const [rating, setRating] = useState('');
-
-	const places = [
-		{ name: 'Cool Place' },
-		{ name: 'Best Beer' },
-		{ name: 'Best Steak' },
-		{ name: 'Cool Place' },
-		{ name: 'Best Beer' },
-		{ name: 'Best Steak' },
-		{ name: 'Cool Place' },
-		{ name: 'Best Beer' },
-		{ name: 'Best Steak' },
-	];
 
 	return (
 		<div className={classes.container}>

@@ -12,22 +12,25 @@ import Rating from '@material-ui/lab';
 
 dotenv.config();
 
-const Map = () => {
+const Map = ({ coordinates, setCoordinates, setBounds }) => {
 	const classes = useStyles();
 	const isMobile = useMediaQuery('(min-width:600px)');
-
-	const coordinatess = { lat: 0, lng: 0 };
 
 	return (
 		<div className={classes.mapContainer}>
 			<GoogleMapReact
-				bootstrapURLKeys={{ key: process.env.GOOGLE_MAP_API_NO }}
-				defaultCenter={coordinatess}
-				center={coordinatess}
-				defaultZoom={14}
+				// bootstrapURLKeys={{ key: process.env.GOOGLE_MAP_API_NO }}
+				bootstrapURLKeys={{ key: 'AIzaSyCTETnLqC_WiZzs4vvDsqNNL-RKNMRwBkI' }}
+				defaultCenter={coordinates}
+				center={coordinates}
+				defaultZoom={18}
 				margin={[50, 50, 50, 50]}
 				options={''}
-				onChange={''}
+				onChange={(e) => {
+					console.log('map onChange event :>> ', e);
+					setCoordinates({ lat: e.center.lat, lng: e.center.lng });
+					setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
+				}}
 				onChildClick={''}
 			></GoogleMapReact>
 		</div>
