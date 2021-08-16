@@ -14,9 +14,11 @@ import CardActions from '@material-ui/core/CardActions';
 import Rating from '@material-ui/lab/Rating';
 import Button from '@material-ui/core/Button';
 
-const PlaceDetails = ({ place }) => {
-	console.log('place props :>> ', place);
+const PlaceDetails = ({ place, selected, refProp }) => {
 	const classes = useStyles();
+
+	if (selected)
+		refProp?.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 	return (
 		<Card elevation={6}>
