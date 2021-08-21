@@ -16,7 +16,7 @@ const App = () => {
 	const [childClicked, setChildClicked] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [type, setType] = useState('restaurants');
-	const [rating, setRating] = useState('');
+	const [rating, setRating] = useState('all');
 	const [autoComplete, setAutoComplete] = useState(null);
 	const [coords, setCoords] = useState({});
 
@@ -29,10 +29,8 @@ const App = () => {
 	}, []);
 
 	useEffect(() => {
-		const filteredPlaces = places.filter(
-			(place) => Number(place.rating) > rating
-		);
-		setFilteredPlaces(filteredPlaces);
+		const filtered = places?.filter((place) => Number(place.rating) > rating);
+		setFilteredPlaces(filtered);
 	}, [rating]);
 
 	useEffect(() => {
@@ -45,7 +43,6 @@ const App = () => {
 
 			getPlaceData(type, bounds.sw, bounds.ne).then((data) => {
 				setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
-				console.log(`getPlaceData`, places);
 				setFilteredPlaces([]);
 				setIsLoading(false);
 			});
@@ -68,7 +65,7 @@ const App = () => {
 			<Grid container spacing={3} style={{ width: '100%' }}>
 				<Grid item xs={12} md={4}>
 					<List
-						places={filteredPlaces.length ? filteredPlaces : places}
+						places={filteredPlaces?.length ? filteredPlaces : places}
 						childClicked={childClicked}
 						isLoading={isLoading}
 						type={type}
@@ -83,7 +80,7 @@ const App = () => {
 						coordinates={coordinates}
 						setCoordinates={setCoordinates}
 						setBounds={setBounds}
-						places={filteredPlaces.length ? filteredPlaces : places}
+						places={filteredPlaces?.length ? filteredPlaces : places}
 						setChildClicked={setChildClicked}
 						weatherData={weatherData}
 					/>
@@ -94,5 +91,3 @@ const App = () => {
 };
 
 export default App;
-
-// 1:57:25

@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import Box from '@material-ui/core/Box';
 import SearchIcon from '@material-ui/icons/Search';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const Header = ({ onLoad, onPlaceChanged }) => {
 	const classes = useStyles();
@@ -26,10 +27,16 @@ const Header = ({ onLoad, onPlaceChanged }) => {
 							<div className={classes.searchIcon}>
 								<SearchIcon />
 							</div>
-							<InputBase
-								placeholder='Search...'
-								classes={{ root: classes.inputRoot, input: classes.inputInput }}
-							/>
+							<div>
+								<InputBase
+									placeholder='Search ...'
+									classes={{
+										root: classes.inputRoot,
+										input: classes.inputInput,
+									}}
+									inputProps={{ 'aria-label': 'search' }}
+								/>
+							</div>
 						</div>
 					</Autocomplete>
 				</Box>
@@ -39,6 +46,3 @@ const Header = ({ onLoad, onPlaceChanged }) => {
 };
 
 export default Header;
-
-// #009688
-// Autocomplete connect api key > index.html file

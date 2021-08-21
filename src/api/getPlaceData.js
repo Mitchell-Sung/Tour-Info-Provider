@@ -19,7 +19,6 @@ const getPlaceData = async (type, sw, ne) => {
 				},
 			}
 		);
-		console.log(`data`, data);
 		return data;
 	} catch (error) {
 		console.error(error);

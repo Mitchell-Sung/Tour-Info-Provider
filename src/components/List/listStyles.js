@@ -2,11 +2,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
 	container: {
-		padding: '25px',
+		padding: '30px',
+	},
+	formControlContainer: {
+		display: 'flex',
+	},
+	formControlSubContainer: {
+		width: '150px',
 	},
 	formControl: {
 		margin: theme.spacing(1),
-		minWidth: 120,
+		// minWidth: 120,
+		width: '150px',
 		marginBottom: '30px',
 	},
 	selectEmpty: {
