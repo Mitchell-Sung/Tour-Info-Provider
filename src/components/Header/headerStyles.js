@@ -29,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+	inputBase: {
+		position: 'relative',
+		marginLeft: '50px',
+	},
 	inputRoot: {
 		color: 'inherit',
 	},

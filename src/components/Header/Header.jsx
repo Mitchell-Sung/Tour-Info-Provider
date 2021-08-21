@@ -27,7 +27,7 @@ const Header = ({ onLoad, onPlaceChanged }) => {
 							<div className={classes.searchIcon}>
 								<SearchIcon />
 							</div>
-							<div>
+							<div className={classes.inputBase}>
 								<InputBase
 									placeholder='Search ...'
 									classes={{
