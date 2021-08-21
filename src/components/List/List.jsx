@@ -1,7 +1,5 @@
-import React, { useState, useEffect, createRef } from 'react';
-
+import React, { useState, useEffect, createRef, Fragment } from 'react';
 import PlaceDetails from '../PlaceDetails/PlaceDetails';
-
 import useStyles from './listStyles.js';
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
@@ -10,7 +8,6 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { Fragment } from 'react';
 
 const List = ({
 	places,
@@ -21,15 +18,17 @@ const List = ({
 	rating,
 	setRating,
 }) => {
+	console.log('places top of the list :>> ', places);
 	const classes = useStyles();
 
 	const [elementRefs, setElementRefs] = useState([]);
 
 	useEffect(() => {
-		const refs = Array(places?.length)
-			.fill()
-			.map((_, i) => refs[i] || createRef());
-		setElementRefs(refs);
+		setElementRefs((refs) =>
+			Array(places?.length)
+				.fill()
+				.map((_, i) => refs[i] || createRef())
+		);
 	}, [places]);
 
 	return (
@@ -81,6 +80,3 @@ const List = ({
 };
 
 export default List;
-
-// create propsType
-// Scroll Places & Filters

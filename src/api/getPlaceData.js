@@ -14,12 +14,12 @@ const getPlaceData = async (type, sw, ne) => {
 					tr_longitude: ne.lng,
 				},
 				headers: {
-					'x-rapidapi-key':
-						'338008225amshb0aa44d81c441ddp1eac22jsn8a7f9b02990a',
+					'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
 					'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
 				},
 			}
 		);
+		console.log(`data`, data);
 		return data;
 	} catch (error) {
 		console.error(error);

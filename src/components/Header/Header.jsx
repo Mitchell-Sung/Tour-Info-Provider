@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Autocomplete } from '@react-google-maps/api';
+
 import useStyles from './headerStyles';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -9,7 +11,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Box from '@material-ui/core/Box';
 import SearchIcon from '@material-ui/icons/Search';
 
-const Header = () => {
+const Header = ({ onLoad, onPlaceChanged }) => {
 	const classes = useStyles();
 
 	return (
@@ -19,15 +21,17 @@ const Header = () => {
 					Travel Guide
 				</Typography>
 				<Box display='flex'>
-					<div className={classes.search}>
-						<div className={classes.searchIcon}>
-							<SearchIcon />
+					<Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
+						<div className={classes.search}>
+							<div className={classes.searchIcon}>
+								<SearchIcon />
+							</div>
+							<InputBase
+								placeholder='Search...'
+								classes={{ root: classes.inputRoot, input: classes.inputInput }}
+							/>
 						</div>
-						<InputBase
-							placeholder='Search...'
-							classes={{ root: classes.inputRoot, input: classes.inputInput }}
-						/>
-					</div>
+					</Autocomplete>
 				</Box>
 			</Toolbar>
 		</AppBar>
@@ -37,3 +41,4 @@ const Header = () => {
 export default Header;
 
 // #009688
+// Autocomplete connect api key > index.html file
