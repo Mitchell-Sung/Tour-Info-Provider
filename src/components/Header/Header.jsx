@@ -19,7 +19,7 @@ const Header = ({ onLoad, onPlaceChanged }) => {
 		<AppBar position='static'>
 			<Toolbar className={classes.toolbar}>
 				<Typography className={classes.title} variant='h5'>
-					Travel Guide
+					Tour Info Provider
 				</Typography>
 				<Box display='flex'>
 					<Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
