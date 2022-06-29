@@ -14,7 +14,8 @@ const getPlaceData = async (type, sw, ne) => {
 					tr_longitude: ne.lng,
 				},
 				headers: {
-					'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
+					// 'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
+					'x-rapidapi-key': '../../netlify/functions/tour',
 					'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
 				},
 			}
